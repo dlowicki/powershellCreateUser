@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Mertero | Benutzerverwaltung</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div id="container">
+
+        <div class="navigation">
+            <ul>
+                <li class="currentNav">Erstellen</li>
+                <li>Bearbeiten</li>
+                <li>Entfernen</li>
+            </ul>
+         </div>
+        <div class="container-small">
+            <div class="m-textbox" id="tb_vorname">
+                <label>Vorname</label>
+                <input type="text" id="m_vn" placeholder="Vorname">
+            </div>
+
+            <div class="m-textbox" id="tb_nachname">
+                <label>Nachname</label>
+                <input type="text" id="m_nn" placeholder="Nachname">
+            </div>
+                <!--<label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>-->
+        </div>
+
+        <div class="container-small">
+            <div class="m-dropdown" id="dd_firma">
+                <label>Firma</label>
+                <select id="firma">
+                    <option value="SJ">Schrauben-Jäger</option>
+                    <option value="WJ">Werkzeug-Jäger</option>
+                </select>
+            </div>
+
+            <div class="m-dropdown" id="dd_standort">
+            <label>Standort</label>
+                <select id="standort">
+                    <option value="karlsruhe">Karlsruhe</option>
+                    <option value="illingen">Illingen</option>
+                    <option value="landsberg">Landsberg</option>
+                    <option value="maulburg">Maulburg</option>
+                    <option value="viernheim">Viernheim</option>
+                    <option value="willstaett">Willstätt</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <!-- 
+            Checkbox mit allen OU's fehlt und muss über powershell abgerufen werden
+
+        -->
+
+        <div class="container-small">
+            <div class="m-textbox" id="tb_durchwahl">
+                <label>Durchwahl</label>
+                <input type="text" id="m_dw" placeholder="Durchwahl">
+            </div>
+
+            <div class="m-textbox" id="tb_mobile">
+                <label>Mobile-Nummer</label>
+                <input type="text" id="m_mn" placeholder="Mobile-Nummer">
+            </div>
+        </div>
+
+        <!--
+            Auswahl an Vorgesetzte auch aus powershell lesen
+        -->
+
+        <div class="container-small">
+            <div class="m-dropdown" id="dd_vorgesetzter">
+                <label>Vorgesetzter</label>
+                <select id="vorgesetzter">
+                    <option value="Vorgesetzter 1">vorgesetzter 1</option>
+                    <option value="Vorgesetzter 2">Vorgesetzter 2</option>
+                    <option value="Vorgesetzter 3">Vorgesetzter 3</option>
+                    <option value="Vorgesetzter 4">Vorgesetzter 4</option>
+                    <option value="Vorgesetzter 5">Vorgesetzter 5</option>
+                    <option value="Vorgesetzter 6">Vorgesetzter 6</option>
+                </select>
+            </div>
+
+            <div class="m-checkbox" id="cb_gruppen">
+                <div class='cb'>
+                    <label>Gruppe1</label>
+                    <label class="switch">
+                        <input type="checkbox" id="m_gp1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class='cb'>
+                    <label>Gruppe2</label>
+                    <label class="switch">
+                        <input type="checkbox" id="m_gp2">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-small">
+            <div class="m-checkbox" id="cb_lizenz">
+                <div class="cb">
+                    <label>Office Basic</label>
+                    <label class="switch">
+                        <input type="checkbox" class="officeLic" id="m_licBasic">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="cb">
+                    <label>Office Premium</label>
+                    <label class="switch">
+                        <input type="checkbox" class="officeLic" id="m_licPremium">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-buttons">
+            <button id="bt_zs" onclick="clearAll()">Zurücksetzen</button>
+            <button id="bt_en" onclick="sendData()">Erstellen</button>
+        </div>
+
+    </div>
+
+    <script>
+
+    $(document).ready(function(){
+        // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
+
+
+    })
+
+    $('.navigation ul li').click(function(){
+        if($(this).attr('class') != 'currentNav'){
+            $('.navigation ul li').parent().find('li').removeClass('currentNav');
+            $(this).attr('class','currentNav');
+        }
+    });
+
+    $('#m_licBasic').click(function(){
+        if($('#m_licPremium').prop('checked') == true){$('#m_licPremium').prop('checked', false);}
+    });
+
+    $('#m_licPremium').click(function(){
+        if($('#m_licBasic').prop('checked') == true){$('#m_licBasic').prop('checked', false);}
+    });
+
+
+
+    function clearAll() {
+        $('#m_vn').val('');
+        $('#m_nn').val('');
+        $('#m_dw').val('');
+        $('#m_mn').val('');
+        $('#m_licBasic').prop('checked',false);
+        $('#m_licPremium').prop('checked',false);
+    }
+
+    function checkData() {
+        // regex for Durchwahl and Mobile Nummer only numbers
+        // regex for Vorname and Nachname, only Letters and Symbols
+
+    }
+
+    function sendData() {
+        // Get Data
+        const vn = $('#m_vn').val(); // Erhalte Vorname
+        const nn = $('#m_nn').val(); // Erhalte Nachname
+        const dw = $('#m_dw').val(); // Erhalte Durchwahl
+        const mn = $('#m_mn').val(); // Erhalte Mobile-Nummer
+
+
+        const vorgesetzter = $('#vorgesetzter').val();  // Erhalte Selektierten Vorgesetzten
+        const firma = $('#firma').val();                // Erhalte Selektierte Firma
+        const standort = $('#standort').val();          // Erhalte Selektierten Standort
+
+        var lic = 0; // Lizenz 0 = keine | 1 = Basic | 2 = Premium
+
+        // Erhalte Lizenz, falls ausgewählt wurde
+        if($('#m_licBasic').prop('checked'))
+        {
+            lic = 1;
+        } else if($('#m_licPremium').prop('checked'))
+        {
+            lic = 2;
+        } else 
+        {
+            lic = 0;
+        }
+
+
+        // Alle Gruppen durchgehen und ausgewählte Gruppen in ein Array speichern
+
+
+
+
+
+        console.log(vn + "-" + nn + "-" + dw + "-" + mn + "-" + vorgesetzter + "-" + firma + "-" + standort + "-" + lic);
+    }
+    
+    </script>
+
+</body>
+</html>
