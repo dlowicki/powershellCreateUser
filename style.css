@@ -20,6 +20,13 @@ Benutzerverwaltung
 	padding: 20px;
 }
 
+.container-livesearch {
+	border: 1px solid white;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 20px;
+}
+
 .m-textbox {
 	width: auto;
 	max-width: 250px;
@@ -43,6 +50,31 @@ Benutzerverwaltung
 	color: white;
 	padding: 2px 2px 2px 5px;
 	border-radius: 10px;
+}
+
+.m-livesearch {
+	width: auto;
+	max-width: 250px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px 0px 10px 0px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 100px;
+}
+
+.m-livesearch label {
+	font-weight: 100;
+	color: white;
+	margin-bottom: 5px;
+	padding-left: 2px;
+}
+
+.m-livesearch input {
+	background-color: transparent;
+	border: 1px solid darkgray;
+	color: white;
+	padding: 4px 10px 4px 10px;
 }
 
 .m-dropdown {
@@ -177,6 +209,27 @@ Benutzerverwaltung
 .currentNav {
 	background-color: rgba(230,230,230,0.3);
 }
+
+
+
+.ul-remove {
+	display: flex;
+	flex-direction: row;
+	text-decoration: none;
+	list-style: none;
+	margin-right: auto;
+	color: white;
+}
+.ul-remove li { width: auto; text-align: left; margin-right: 25px; font-size: 1.2rem;}
+.button-deactivate { background-color: #3f37c9; border: 1px solid #3f37c9; color: white; width: 130px; padding: 5px; margin-right: 10px; cursor: pointer; transition: 0.5s;}
+.button-deactivate:hover { background-color: #3a0ca3; }
+.button-activate { background-color: #2b9348; border: 1px solid #2b9348; color: white; width: 130px; padding: 5px; margin-right: 10px; cursor: pointer; transition: 0.5s;}
+.button-activate:hover { background-color: #007f5f; }
+
+.button-remove { background-color: #d62828; border: 1px solid #d62828; color: white; width: 130px; padding: 5px; margin-right: 10px; cursor: pointer; transition: 0.5s;}
+.button-remove:hover { background-color: #9a031e; }
+
+
 
 
 

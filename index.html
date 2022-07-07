@@ -6,135 +6,22 @@
     <title>Mertero | Benutzerverwaltung</title>
     <link href="style.css" rel="stylesheet">
     <script src="jquery.js"></script>
+    <script src="loadData.js"></script>
 </head>
 <body>
     <div id="container">
 
         <div class="navigation">
             <ul>
-                <li class="currentNav">Erstellen</li>
-                <li>Bearbeiten</li>
-                <li>Entfernen</li>
+                <li class="currentNav" onClick="loadErstellen()">Erstellen</li>
+                <li onClick="loadBearbeiten()">Bearbeiten</li>
+                <li onClick="loadEntfernen()">Entfernen</li>
             </ul>
          </div>
-        <div class="container-small">
-            <div class="m-textbox" id="tb_vorname">
-                <label>Vorname</label>
-                <input type="text" id="m_vn" placeholder="Vorname">
-            </div>
 
-            <div class="m-textbox" id="tb_nachname">
-                <label>Nachname</label>
-                <input type="text" id="m_nn" placeholder="Nachname">
-            </div>
-                <!--<label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                </label>-->
-        </div>
+         <div id="widget">
 
-        <div class="container-small">
-            <div class="m-dropdown" id="dd_firma">
-                <label>Firma</label>
-                <select id="firma">
-                    <option value="SJ">Schrauben-Jäger</option>
-                    <option value="WJ">Werkzeug-Jäger</option>
-                </select>
-            </div>
-
-            <div class="m-dropdown" id="dd_standort">
-            <label>Standort</label>
-                <select id="standort">
-                    <option value="karlsruhe">Karlsruhe</option>
-                    <option value="illingen">Illingen</option>
-                    <option value="landsberg">Landsberg</option>
-                    <option value="maulburg">Maulburg</option>
-                    <option value="viernheim">Viernheim</option>
-                    <option value="willstaett">Willstätt</option>
-                </select>
-            </div>
-        </div>
-
-
-
-        <!-- 
-            Checkbox mit allen OU's fehlt und muss über powershell abgerufen werden
-
-        -->
-
-        <div class="container-small">
-            <div class="m-textbox" id="tb_durchwahl">
-                <label>Durchwahl</label>
-                <input type="text" id="m_dw" placeholder="Durchwahl">
-            </div>
-
-            <div class="m-textbox" id="tb_mobile">
-                <label>Mobile-Nummer</label>
-                <input type="text" id="m_mn" placeholder="Mobile-Nummer">
-            </div>
-        </div>
-
-        <!--
-            Auswahl an Vorgesetzte auch aus powershell lesen
-        -->
-
-        <div class="container-small">
-            <div class="m-dropdown" id="dd_vorgesetzter">
-                <label>Vorgesetzter</label>
-                <select id="vorgesetzter">
-                    <option value="Vorgesetzter 1">vorgesetzter 1</option>
-                    <option value="Vorgesetzter 2">Vorgesetzter 2</option>
-                    <option value="Vorgesetzter 3">Vorgesetzter 3</option>
-                    <option value="Vorgesetzter 4">Vorgesetzter 4</option>
-                    <option value="Vorgesetzter 5">Vorgesetzter 5</option>
-                    <option value="Vorgesetzter 6">Vorgesetzter 6</option>
-                </select>
-            </div>
-
-            <div class="m-checkbox" id="cb_gruppen">
-                <div class='cb'>
-                    <label>Gruppe1</label>
-                    <label class="switch">
-                        <input type="checkbox" id="m_gp1">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class='cb'>
-                    <label>Gruppe2</label>
-                    <label class="switch">
-                        <input type="checkbox" id="m_gp2">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-small">
-            <div class="m-checkbox" id="cb_lizenz">
-                <div class="cb">
-                    <label>Office Basic</label>
-                    <label class="switch">
-                        <input type="checkbox" class="officeLic" id="m_licBasic">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-
-                <div class="cb">
-                    <label>Office Premium</label>
-                    <label class="switch">
-                        <input type="checkbox" class="officeLic" id="m_licPremium">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-buttons">
-            <button id="bt_zs" onclick="clearAll()">Zurücksetzen</button>
-            <button id="bt_en" onclick="sendData()">Erstellen</button>
-        </div>
-
+         </div>
     </div>
 
     <script>
@@ -142,7 +29,7 @@
     $(document).ready(function(){
         // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
 
-
+        loadEntfernen();
     })
 
     $('.navigation ul li').click(function(){
