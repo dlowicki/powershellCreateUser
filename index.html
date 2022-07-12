@@ -10,26 +10,23 @@
 </head>
 <body>
     <div id="container">
-
         <div class="navigation">
             <ul>
                 <li class="currentNav" onClick="loadErstellen()">Erstellen</li>
                 <li onClick="loadBearbeiten()">Bearbeiten</li>
                 <li onClick="loadEntfernen()">Entfernen</li>
             </ul>
+            <button class="bt-sync">Synchronisieren</button>
          </div>
 
-         <div id="widget">
-
-         </div>
+        <div id="widget"></div>
     </div>
 
     <script>
 
     $(document).ready(function(){
         // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
-
-        loadEntfernen();
+        loadErstellen();
     })
 
     $('.navigation ul li').click(function(){
@@ -99,6 +96,11 @@
 
         console.log(vn + "-" + nn + "-" + dw + "-" + mn + "-" + vorgesetzter + "-" + firma + "-" + standort + "-" + lic);
     }
+
+
+
+
+
     
     </script>
 

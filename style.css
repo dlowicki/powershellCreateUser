@@ -27,9 +27,10 @@ Benutzerverwaltung
 	padding: 20px;
 }
 
+
 .m-textbox {
 	width: auto;
-	max-width: 250px;
+	max-width: 240px;
 	display: flex;
 	flex-wrap: wrap;
 	margin: 10px 0px 10px 0px;
@@ -48,7 +49,7 @@ Benutzerverwaltung
 	background-color: transparent;
 	border: 1px solid darkgray;
 	color: white;
-	padding: 2px 2px 2px 5px;
+	padding: 2px 2px 2px 15px;
 	border-radius: 10px;
 }
 
@@ -57,10 +58,9 @@ Benutzerverwaltung
 	max-width: 250px;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 10px 0px 10px 0px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 }
 
 .m-livesearch label {
@@ -75,11 +75,23 @@ Benutzerverwaltung
 	border: 1px solid darkgray;
 	color: white;
 	padding: 4px 10px 4px 10px;
+	max-width: 230px;
 }
+
+#livesearch {
+	display: block;
+	width: 100%;
+	color: white;
+	overflow: auto;
+	margin-top: 0px;
+	background-color: rgb(20,20,20);
+}
+#livesearch a { display: block; text-align: center; cursor: pointer; width: 100%; margin: 5px 0px 5px 0px; font-size: 1.2rem; }
+
 
 .m-dropdown {
 	width: auto;
-	max-width: 250px;
+	max-width: 240px;
 	display: flex;
 	flex-wrap: wrap;
 	margin: 10px 0px 10px 0px;
@@ -99,7 +111,7 @@ Benutzerverwaltung
 	background-color: transparent;
 	border: 1px solid darkgray;
 	color: white;
-	padding: 2px 2px 2px 5px;
+	padding: 2px 2px 2px 15px;
 	border-radius: 10px;
 	width: 200px;
 }
@@ -172,6 +184,17 @@ Benutzerverwaltung
 	border: 1px solid green;
 }
 #bt_en:hover { opacity: 0.8; }
+
+.bt-sync {
+	background-color: #00b4d8;
+	color: white;
+	padding: 4px;
+	cursor: pointer;
+	transition: 0.5s;
+	margin-left: auto;
+	display: block;
+}
+.bt-sync:hover { background-color: #0096c7; }
 
 .navigation {
 	color: white;
