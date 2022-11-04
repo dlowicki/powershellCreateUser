@@ -1,0 +1,37 @@
+{
+    "ar-firma": [
+      "Schrauben-Jäger",
+      "Werkzeug-Jäger"
+    ],
+    "ar-Standort": [
+      "Karlsruhe",
+      "Illingen",
+      "Landsberg",
+      "Maulburg",
+      "Viernheim",
+      "Willstätt"
+    ],
+    "ar-abteilung": [
+      "Abteilung1",
+      "Abteilung2",
+      "Abteilung3"
+    ],
+    "ar-vorgesetzte": [
+      "Vorgesetzte1",
+      "Vorgesetzte2",
+      "Vorgesetzter3",
+      "Vorgesetzter4"
+    ],
+    "ar-gruppen": [
+      "Gruppe1",
+      "Gruppe2",
+      "Gruppe3",
+      "Gruppe4",
+      "Gruppe5",
+      "Gruppe6"
+    ],
+    "ar-Abteilung1": [
+        "Gruppe1",
+        "Gruppe4"
+    ]
+  }
