@@ -1,8 +1,10 @@
 {
-    "ar-firma": [
-      "Schrauben-Jäger",
-      "Werkzeug-Jäger"
-    ],
+    "ar-firma": {
+      "ar-firma": [
+          "Schrauben-Jäger",
+          "Werkzeug-Jäger"
+      ] 
+    },
     "ar-Standort": [
       "Karlsruhe",
       "Illingen",
