@@ -11,25 +11,49 @@
       "Viernheim",
       "Willstätt"
     ],
-    "ar-abteilung": [
+    "ar-Abteilung": [
       "Keine Abteilung",
-      "Abteilung1",
-      "Abteilung2",
-      "Abteilung3"
+      "EDV",
+      "Einkauf",
+      "Verkauf",
+      "Außendienst"
     ],
-    "ar-vorgesetzte": [
+    "ar-Vorgesetzter": [
       "Vorgesetzte1",
       "Vorgesetzte2",
       "Vorgesetzter3",
       "Vorgesetzter4"
     ],
-    "ar-gruppen": [
-      "Gruppe1",
-      "Gruppe2",
-      "Gruppe3",
-      "Gruppe4",
-      "Gruppe5",
-      "Gruppe6"
+    "ar-pc-laptop": [
+      "Kein Laptop/PC",
+      "Laptop",
+      "Desktop-PC"
+    ],
+    "ar-tastatur-maus": [
+      "Keine Tastatur/Maus",
+      "Tastatur + Maus",
+      "Nur Tastatur",
+      "Nur Maus"
+    ],
+    "ar-headset": [
+      "Kein Headset",
+      "Jabra Evolve 2 65",
+      "Jabra 510"
+    ],
+    "ar-monitore": [
+      "Keine Monitore",
+      "2x Monitore",
+      "1x Monitor"
+    ],
+    "Docking-Station": false,
+    "Geschäfts-Handy": false,
+    "ar-software": [
+      "Codesoft",
+      "Software2",
+      "Software3",
+      "Software4",
+      "Software5",
+      "Software6"
     ],
     "ar-Abteilung1": [
         "Gruppe1",

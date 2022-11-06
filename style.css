@@ -5,7 +5,7 @@ body { background-color: rgb(30,30,30); }
 Benutzerverwaltung
 */
 
-#container {width: 50%;min-width: 350px;margin-left:auto;margin-right:auto;padding: 20px;}
+#container { width: 70%;min-width: 350px;margin-left:auto;margin-right:auto;padding: 20px;}
 
 .container-small {border: 1px solid white;padding: 10px;}
 .container-headline { width: 100%; display: flex; flex-wrap: nowrap; }
@@ -25,6 +25,8 @@ Benutzerverwaltung
 .m-textbox {width: auto;max-width: 240px;display: flex;flex-wrap: wrap;margin: 10px 0px 10px 0px;margin-left: auto;margin-right: auto;}
 .m-textbox label {font-weight: 100;color: white;margin-bottom: 5px;padding-left: 5px;}
 .m-textbox input {background-color: transparent;border: 1px solid darkgray;color: white;padding: 4px 2px 4px 15px;border-radius: 10px;}
+#m-textarea { resize: none; outline: none; padding: 5px; margin-top: 10px; margin-left: auto; margin-right: auto; 
+  width: 80%; display: block; height: 20%; min-height: 80px; max-height: 300px;}
 
 .m-livesearch {width: auto;max-width: 250px;display: flex;flex-wrap: wrap;margin-left: auto;margin-right: auto;padding-bottom: 50px;}
 .m-livesearch label {font-weight: 100;color: white;margin-bottom: 5px;padding-left: 2px;}
@@ -36,22 +38,24 @@ Benutzerverwaltung
 .m-dropdown label {font-weight: 100;color: white;margin-bottom: 5px;padding-left: 5px;width: 100%;}
 .m-dropdown select {background-color: transparent;border: 1px solid darkgray;color: white;padding: 2px 2px 2px 15px;border-radius: 10px;width: 200px;}
 .m-dropdown select option {background-color: rgb(30,30,30);}
-.m-checkbox {display: flex;flex-wrap: wrap;margin: 10px 0px 10px 0px;}
+.m-checkbox {display: flex;flex-wrap: wrap; margin: 15px 10px 15px 10px;}
+
+#cs4 .m-checkbox { padding-top: 22px; margin-right: 10%; }
 
 #cb_gruppen {padding: 5px;}
 .cb { color: white; display: flex;flex-wrap: wrap;width: auto;height: 20px;margin-left: auto;margin-right: auto;padding: 2px 5px 2px 5px;}
 .cb label {font-weight: 100;color: white;padding-right: 10px;}
 #cb_lizenz {margin-left: auto;margin-right: auto;width: 75%;}
 
-.container-buttons { display: flex; flex-wrap: nowrap; padding: 20px; }
+.container-buttons { display: flex; flex-wrap: nowrap; padding: 20px; margin: 50px 0px 50px 0px; }
 .container-buttons button {margin-left: auto;margin-right: auto;width: 140px;padding: 5px 0px 5px 0px;cursor: pointer;border-radius: 5px;color: white;transition: 0.5s;}
 
 #bt_zs {background-color: red;border: 1px solid darkred;} 
 #bt_zs:hover { opacity: 0.8; }
 #bt_en {background-color: green;border: 1px solid green;}
 #bt_en:hover { opacity: 0.8; }
-.bt-sync {background-color: #00b4d8;color: white;padding: 4px;cursor: pointer;transition: 0.5s;margin-left: auto;display: block;}
-.bt-sync:hover { background-color: #0096c7; }
+#bt_link {background-color: #00b4d8;border: 1px solid #00b4d8;}
+#bt_link:hover { opacity: 0.8; }
 
 .navigation {color: white;width: 100%;min-width: 300px;margin-bottom: 10px;}
 

@@ -25,15 +25,20 @@
     });
 
     $(document).on('change','#cs1 input', function(){
-        var m_vn = $('#m_vn').val(); var m_nn = $('#m_nn').val();
-        if(m_vn.length > 2 && m_nn.length > 2) {
-            if($('#cs1-headline img').length == false){
-                $('#cs1-headline').append('<img src="check-solid.svg" id="check-1">'); 
-            }
-        } else {
-            $('#cs1-headline img').remove();
-        }
+        var m_vn = $('#m_vn').val(); var m_nn = $('#m_nn').val(); var m_date = $('#m_date').val();
+        if(m_vn.length > 2 && m_nn.length > 2 && m_date.length != 0) {
+            if($('#cs1-headline img').length == false){ $('#cs1-headline').append('<img src="check-solid.svg" id="check-1">'); }
+        } else { $('#cs1-headline img').remove(); }
     });
+
+    $(document).on('change','#cs2 select', function(){
+        var abt = $('#abteilung').val();
+        if(abt != 'Keine Abteilung') {
+            if($('#cs2-headline img').length == false){ $('#cs2-headline').append('<img src="check-solid.svg" id="check-1">'); }
+        } else { $('#cs2-headline img').remove(); }
+    });
+
+
 
     $('.navigation ul li').click(function(){
         if($(this).attr('class') != 'currentNav'){
