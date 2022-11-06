@@ -1,7 +1,7 @@
 {
     "ar-firma": [
-      "Schrauben-Jäger",
-      "Werkzeug-Jäger"
+        "Schrauben-Jäger",
+        "Werkzeug-Jäger"
     ],
     "ar-Standort": [
       "Karlsruhe",
@@ -12,6 +12,7 @@
       "Willstätt"
     ],
     "ar-abteilung": [
+      "Keine Abteilung",
       "Abteilung1",
       "Abteilung2",
       "Abteilung3"

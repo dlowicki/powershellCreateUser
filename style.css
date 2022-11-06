@@ -8,7 +8,9 @@ Benutzerverwaltung
 #container {width: 50%;min-width: 350px;margin-left:auto;margin-right:auto;padding: 20px;}
 
 .container-small {border: 1px solid white;padding: 10px;}
-.container-small h3 { width: auto; min-width: 130px; color: white; font-size: 1.5rem; }
+.container-headline { width: 100%; display: flex; flex-wrap: nowrap; }
+.container-headline h3 { width: auto; min-width: 50px; max-width: 200px; overflow: hidden; color: white; font-size: 1.5rem; }
+.container-headline img { margin-left: 10px; width: 3%; color: green; filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); }
 .container-livesearch {border: 1px solid white;display: flex;flex-wrap: wrap;padding: 20px;}
 
 .m-flex-wrap { display: flex;flex-wrap: wrap; }
@@ -53,7 +55,7 @@ Benutzerverwaltung
 
 .navigation {color: white;width: 100%;min-width: 300px;margin-bottom: 10px;}
 
-.navigation ul {list-style: none;text-decoration: none;display: flex;flex-wrap: nowrap;width: 400px;margin-left: auto;margin-right: auto;}
+.navigation ul {list-style: none;text-decoration: none;display: flex;flex-wrap: nowrap;width: 400px;margin-left: auto;margin-right: auto; margin-bottom: 30px;}
 .navigation ul li {margin-left: auto;margin-right: auto;padding: 2px;width: 120px;text-align: center;cursor: pointer;transition: 0.5s;border: 1px solid darkgray;}
 
 .navigation ul li:hover {border: 1px solid white;color: darkgray;}

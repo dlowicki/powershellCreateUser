@@ -11,13 +11,10 @@
     <div id="container">
         <div class="navigation">
             <ul>
-                <li class="currentNav" onClick="loadErstellen()">Eintritt</li>
-                <li onClick="loadBearbeiten()">Bearbeiten</li>
-                <li onClick="loadEntfernen()">Entfernen</li>
+                <li class="currentNav" onClick="location.reload()">Eintritt</li>
+                <li onClick="loadBearbeiten()">Austritt</li>
             </ul>
-            <button class="bt-sync">Synchronisieren</button>
          </div>
-
         <div id="widget"></div>
     </div>
 
@@ -25,8 +22,18 @@
 
     $(document).ready(function(){
         // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
-        loadErstellen();
-    })
+    });
+
+    $(document).on('change','#cs1 input', function(){
+        var m_vn = $('#m_vn').val(); var m_nn = $('#m_nn').val();
+        if(m_vn.length > 2 && m_nn.length > 2) {
+            if($('#cs1-headline img').length == false){
+                $('#cs1-headline').append('<img src="check-solid.svg" id="check-1">'); 
+            }
+        } else {
+            $('#cs1-headline img').remove();
+        }
+    });
 
     $('.navigation ul li').click(function(){
         if($(this).attr('class') != 'currentNav'){
