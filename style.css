@@ -1,5 +1,6 @@
 ﻿* { margin: 0; padding:0; font-size: 1rem; font-family: sans-serif; }
 body { background-color: rgb(30,30,30); }
+.errorMSG { color: white; font-size: 1.5rem; display: block; }
 
 /* 
 Benutzerverwaltung

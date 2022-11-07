@@ -1,21 +1,23 @@
 $(document).ready(function(){
   // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
-
+  
 });
 
 var cURL = new URL(window.location.href);
-if(window.location.href.includes('edit.html')){
-  var link = cURL.searchParams.get("link");
-  if(link.length != 12){ $('#widget').append('<h2>Konnte URL nicht auflösen!</h2>'); } 
-} else if(window.location.href.includes('index.html')) {
+if(window.location.href.includes('index.html')) {
+
+  var link = new String(cURL.searchParams.get("edit"));
+
   $.getJSON("data.json", function(data){
     var items = [];
     $.each( data, function(key,val){
       items[key] = val;
     });
+
+    
   
     console.log('[JSON] Daten wurden geladen');
-  
+    
     $('#widget').empty();
     $('#widget').append('<div class="container-small" id="cs1"></div>');
     $('#widget').append('<div class="container-small" id="cs2"></div>');
