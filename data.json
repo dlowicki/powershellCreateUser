@@ -53,10 +53,11 @@
       "Software3",
       "Software4",
       "Software5",
-      "Software6"
+      "Software6",
+      "Software7"
     ],
-    "ar-Abteilung1": [
-        "Gruppe1",
-        "Gruppe4"
+    "ar-office": [
+        "Office Basic",
+        "Office Premium"
     ]
   }

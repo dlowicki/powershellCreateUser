@@ -23,7 +23,7 @@
     $(document).ready(function(){
         // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
     });
-
+    
     $(document).on('change','#cs1 input', function(){
         var m_vn = $('#m_vn').val(); var m_nn = $('#m_nn').val(); var m_date = $('#m_date').val();
         if(m_vn.length > 2 && m_nn.length > 2 && m_date.length != 0) {
@@ -38,7 +38,23 @@
         } else { $('#cs2-headline img').remove(); }
     });
 
+    $(document).on('change','#cs6 input', function(){
+        var abt = $('#abteilung').val();
+        if(abt != 'Keine Abteilung') {
+            if($('#cs2-headline img').length == false){ $('#cs2-headline').append('<img src="check-solid.svg" id="check-1">'); }
+        } else { $('#cs2-headline img').remove(); }
+    });
 
+    $(document).on('click','#cb_lizenz input',function(event){ 
+        const checked = $('#'+event.target.id).prop('checked');
+        if(checked == true) { 
+            $('.officeLic').prop('checked', false); 
+            $('#'+event.target.id).prop('checked', true);
+            if($('#cs6-headline img').length == false){ $('#cs6-headline').append('<img src="check-solid.svg" id="check-6">'); }
+        } else { 
+            $('#'+event.target.id).prop('checked', false); $('#cs6-headline img').remove();
+        }
+    });
 
     $('.navigation ul li').click(function(){
         if($(this).attr('class') != 'currentNav'){
@@ -47,29 +63,12 @@
         }
     });
 
-    $('#m_licBasic').click(function(){
-        if($('#m_licPremium').prop('checked') == true){$('#m_licPremium').prop('checked', false);}
-    });
-
-    $('#m_licPremium').click(function(){
-        if($('#m_licBasic').prop('checked') == true){$('#m_licBasic').prop('checked', false);}
-    });
 
 
-
-    function clearAll() {
-        $('#m_vn').val('');
-        $('#m_nn').val('');
-        $('#m_dw').val('');
-        $('#m_mn').val('');
-        $('#m_licBasic').prop('checked',false);
-        $('#m_licPremium').prop('checked',false);
-    }
 
     function checkData() {
         // regex for Durchwahl and Mobile Nummer only numbers
         // regex for Vorname and Nachname, only Letters and Symbols
-
     }
 
     function sendData() {
