@@ -6,17 +6,17 @@ $(document).ready(function(){
 var cURL = new URL(window.location.href);
 if(window.location.href.includes('index.html')) {
 
-  var link = new String(cURL.searchParams.get("edit"));
-
   $.getJSON("data.json", function(data){
     var items = [];
     $.each( data, function(key,val){
       items[key] = val;
     });
 
-    
+    var link = new String(cURL.searchParams.get("edit"));
+    var editMode = false;
+    if(link){ if(link.length == 12){ editMode = true; } }
   
-    console.log('[JSON] Daten wurden geladen');
+    console.log('[JSON] Daten wurden geladen');    
     
     $('#widget').empty();
     $('#widget').append('<div class="container-small" id="cs1"></div>');
@@ -30,7 +30,7 @@ if(window.location.href.includes('index.html')) {
     // Lade Container 1 // Personen-Daten
     $('#cs1').append('<div class="container-headline" id="cs1-headline"><h3>Personen-Daten</h3></div>');
     $('#cs1').append('<div class="m-flex-wrap"></div>');
-    $('#cs1 .m-flex-wrap').append('<div class="m-textbox" id="tb_vorname"><label>Vorname</label><input type="text" id="m_vn" placeholder="Vorname"></div>');
+    $('#cs1 .m-flex-wrap').append('<div class="m-textbox" id="tb_vorname"><label>Vorname</label><input type="text" data-id="m-1" id="m_vn" placeholder="Vorname"></div>');
     $('#cs1 .m-flex-wrap').append('<div class="m-textbox" id="tb_nachname"><label>Nachname</label><input type="text" id="m_nn" placeholder="Nachname"></div>');
     $('#cs1 .m-flex-wrap').append('<div class="m-textbox" id="tb_nachname"><label>Eintrittsdatum</label><input type="date" id="m_date" placeholder="Datum"></div>');
   
@@ -110,8 +110,16 @@ if(window.location.href.includes('index.html')) {
     // Lade Buttons
     $('#widget').append('<div class="container-buttons"></div>');
     $('.container-buttons').append('<button id="bt_zs" onclick="clearAll()">Zurücksetzen</button>');
-    $('.container-buttons').append('<button id="bt_link">Link erstellen</button>');
+    if(editMode == true){
+        $('.container-buttons').append('<button id="bt_link">Link speichern</button>');
+    } else {
+        $('.container-buttons').append('<button id="bt_link">Link erstellen</button>');
+    }
     $('.container-buttons').append('<button id="bt_en" onclick="sendData()">EDV Senden</button>');
+
+    var ajaxObj = loadEditData(link);
+    var ajaxResponse = ajaxObj.responseText;
+    var splitted = ajaxResponse.split(';');
     
   
   })
@@ -120,7 +128,14 @@ if(window.location.href.includes('index.html')) {
   });
 }
 
-
+function loadEditData(udid) {
+    return $.ajax({
+      method: "GET",
+      url: "request.php",
+      async: !1,
+      data: { uniqueData: udid }
+    });
+}
 
 
 function clearAll() {

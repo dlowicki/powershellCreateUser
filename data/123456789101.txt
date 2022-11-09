@@ -1,0 +1,1 @@
+david;lowicki;10.01.2000;Schrauben-Jäger;Karlsruhe;Keine Abteilung;000;07218303144;Vorgesetzte2;Laptop;Nur Maus;;;true;true;false;false;false;false;false;false;false;Office Basic;Kein Kommentar;
