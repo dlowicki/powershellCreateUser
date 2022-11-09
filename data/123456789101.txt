@@ -1,1 +1,1 @@
-david;lowicki;10.01.2000;Schrauben-Jäger;Karlsruhe;Keine Abteilung;000;07218303144;Vorgesetzte2;Laptop;Nur Maus;;;true;true;false;false;false;false;false;false;false;Office Basic;Kein Kommentar;
+david;lowicki;2000-01-10;Werkzeug-Jäger;Karlsruhe;EDV;000;07218303144;Vorgesetzte2;Laptop;Nur Maus;Jabra Evolve 2 65;1x Monitor;0;1;1;1;1;1;1;1;1;Office Basic;Kein Kommentar;
