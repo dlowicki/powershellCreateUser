@@ -1,0 +1,20 @@
+data.json enthält alle Geräte egal ob Software oder Hardware
+
+Webseite liest die Daten aus JSON und verarbeitet diese in "loadData.js"
+
+Alle Abschnitte außer ar-office können dynamisch erweitert werden
+Bsp. Firma 
+    Werte sind zurzeit Schrauben-Jäger und Werkzeug-Jäger. Ein Wert kann entweder aus der data.json entfernt oder hinzugefügt werden.
+
+
+Jedes Textfeld hat eine eigene ID die statisch einprogrammiert wurde
+Wenn z.B. auf "Link erstellen" geklickt wird, werden alle Textfelder nacheinander anhand der ID 
+rausgesucht und an die request.php weitergesendet (POST verfahren)
+
+
+
+
+
+
+Programmierung Attribute
+cb = checkbox

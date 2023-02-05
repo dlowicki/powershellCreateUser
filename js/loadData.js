@@ -81,17 +81,19 @@ if(window.location.href.includes('index.html')) {
     $.each(items['ar-monitore'], function(key,val){
       $('#monitore').append('<option value="'+val+'">'+val+'</option>');
     });
-    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_docking"><div class="cb"><label>Docking-Station</label><label class="switch"><input type="checkbox" data-id="m-14"><span class="slider round"></span></label></div></div>');
-    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_handy"><div class="cb"><label>Geschäfts-Handy</label><label class="switch"><input type="checkbox" data-id="m-15"><span class="slider round"></span></label></div></div>');
+    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_docking"><div class="cb"><label>Docking-Station</label><label class="switch"><input type="checkbox" id="m-14"><span class="slider round"></span></label></div></div>');
+    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_handy"><div class="cb"><label>Geschäfts-Handy</label><label class="switch"><input type="checkbox" id="m-15"><span class="slider round"></span></label></div></div>');
+    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_telefon"><div class="cb"><label>Stand-Telefon</label><label class="switch"><input type="checkbox" id="m-16"><span class="slider round"></span></label></div></div>');
+    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_homeoffice"><div class="cb"><label>Homeoffice</label><label class="switch"><input type="checkbox" id="m-17"><span class="slider round"></span></label></div></div>');
    
   
   
     // Lade Container 5 // Gruppen
     $('#cs5').append('<div class="container-headline" id="cs5-headline"><h3>Software</h3></div>');
     $('#cs5').append('<div class="m-flex-wrap" id="cb_software"></div>');
-    var counter = 16;
+    var counter = 1;
     $.each(items['ar-software'], function(key,val){
-      $('#cb_software').append('<div class="m-checkbox"><div class="cb"><label>'+val+'</label><label class="switch"><input type="checkbox" data-id="m-'+counter+'"><span class="slider round"></span></label></div></div>');
+      $('#cb_software').append('<div class="m-checkbox"><div class="cb"><label>'+val+'</label><label class="switch"><input type="checkbox" id="sw-'+counter+'" class="sw-item"><span class="slider round"></span></label></div></div>');
       counter++;
     });
   
@@ -101,7 +103,7 @@ if(window.location.href.includes('index.html')) {
     $('#cs6 .m-flex-wrap').append('<div class="m-checkbox" id="cb_lizenz"></div>');    
     var counter = 1;
     $.each(items['ar-office'], function(key,val){
-      $('#cb_lizenz').append('<div class="cb"><label>'+val+'</label><label class="switch"><input type="checkbox" class="officeLic" id="lic'+counter+'"><span class="slider round"></span></label></div>');
+      $('#cb_lizenz').append('<div class="cb"><label>'+val+'</label><label class="switch"><input type="checkbox" class="officeLic" id="lic-'+counter+'"><span class="slider round"></span></label></div>');
       counter++;
     });
   
@@ -115,54 +117,59 @@ if(window.location.href.includes('index.html')) {
     if(editMode == true){
         $('.container-buttons').append('<button id="bt_link">Link speichern</button>');
     } else {
-        $('.container-buttons').append('<button id="bt_link">Link erstellen</button>');
+        $('.container-buttons').append('<button id="bt_link" onClick="saveData()">Link erstellen</button>');
     }
     $('.container-buttons').append('<button id="bt_en" onclick="sendData()">EDV Senden</button>');
 
     if(editMode == true){
-      var ajaxObj = loadEditData(link);
+      // link = GET edit Parameter from URL
+      var ajaxObj = loadEditData(link);       // loadEditData = get data from file at data Directory 
       var ajaxResponse = ajaxObj.responseText;
-      var splitted = ajaxResponse.split(';');
+      // Wenn ajaxResponse == true | Datei existiert
+      if(ajaxResponse) {
+        var splitted = ajaxResponse.split(';');
 
-      $('#cs1 input[data-id="m-1"]').val(splitted[0]);
-      $('#cs1 input[data-id="m-2"]').val(splitted[1]);
-      $('#cs1 input[data-id="m-3"]').val(splitted[2]);
-
-      $('#cs2 select[data-id="m-4"]').val(splitted[3]);
-      $('#cs2 select[data-id="m-5"]').val(splitted[4]);
-      $('#cs2 select[data-id="m-6"]').val(splitted[5]);
-
-      $('#cs3 input[data-id="m-7"]').val(splitted[6]);
-      $('#cs3 input[data-id="m-8"]').val(splitted[7]);
-      $('#cs3 select[data-id="m-9"]').val(splitted[8]);
-
-      $('#cs4 select[data-id="m-10"]').val(splitted[9]);
-      $('#cs4 select[data-id="m-11"]').val(splitted[10]);
-      $('#cs4 select[data-id="m-12"]').val(splitted[11]);
-      $('#cs4 select[data-id="m-13"]').val(splitted[12]);
-      $('#cs4 input[data-id="m-14"]').prop('checked',parseInt(splitted[13]));
-      $('#cs4 input[data-id="m-15"]').prop('checked',parseInt(splitted[14]));
-
-      $('#cs5 input[data-id="m-16"]').prop('checked',parseInt(splitted[15]));
-      $('#cs5 input[data-id="m-17"]').prop('checked',parseInt(splitted[16]));
-      $('#cs5 input[data-id="m-18"]').prop('checked',parseInt(splitted[17]));
-      $('#cs5 input[data-id="m-19"]').prop('checked',parseInt(splitted[18]));
-      $('#cs5 input[data-id="m-20"]').prop('checked',parseInt(splitted[19]));
-      $('#cs5 input[data-id="m-21"]').prop('checked',parseInt(splitted[20]));
-      $('#cs5 input[data-id="m-22"]').prop('checked',parseInt(splitted[21]));
-
-      switch (splitted[22]) {
-        case 'Office Premium':
-          $('#lic2').prop('checked',true);
-          break;
-        case 'Office Basic':
-          $('#lic1').prop('checked',true);
-          break;
+        $('#cs1 input[data-id="m-1"]').val(splitted[0]);
+        $('#cs1 input[data-id="m-2"]').val(splitted[1]);
+        $('#cs1 input[data-id="m-3"]').val(splitted[2]);
+  
+        $('#cs2 select[data-id="m-4"]').val(splitted[3]);
+        $('#cs2 select[data-id="m-5"]').val(splitted[4]);
+        $('#cs2 select[data-id="m-6"]').val(splitted[5]);
+  
+        $('#cs3 input[data-id="m-7"]').val(splitted[6]);
+        $('#cs3 input[data-id="m-8"]').val(splitted[7]);
+        $('#cs3 select[data-id="m-9"]').val(splitted[8]);
+  
+        $('#cs4 select[data-id="m-10"]').val(splitted[9]);
+        $('#cs4 select[data-id="m-11"]').val(splitted[10]);
+        $('#cs4 select[data-id="m-12"]').val(splitted[11]);
+        $('#cs4 select[data-id="m-13"]').val(splitted[12]);
+        $('#cs4 input[data-id="m-14"]').prop('checked',parseInt(splitted[13]));
+        $('#cs4 input[data-id="m-15"]').prop('checked',parseInt(splitted[14]));
+  
+        $('#cs5 input[data-id="m-16"]').prop('checked',parseInt(splitted[15]));
+        $('#cs5 input[data-id="m-17"]').prop('checked',parseInt(splitted[16]));
+        $('#cs5 input[data-id="m-18"]').prop('checked',parseInt(splitted[17]));
+        $('#cs5 input[data-id="m-19"]').prop('checked',parseInt(splitted[18]));
+        $('#cs5 input[data-id="m-20"]').prop('checked',parseInt(splitted[19]));
+        $('#cs5 input[data-id="m-21"]').prop('checked',parseInt(splitted[20]));
+        $('#cs5 input[data-id="m-22"]').prop('checked',parseInt(splitted[21]));
+  
+        switch (splitted[22]) {
+          case 'Office Premium':
+            $('#lic2').prop('checked',true);
+            break;
+          case 'Office Basic':
+            $('#lic1').prop('checked',true);
+            break;
+        }
+  
+        $('#m-textarea').text(splitted[23]);
+        console.log('[Success] Daten erfolgreich verarbeitet von [Request]');
+      } else {
+        console.log('[Error] Fehler bei Erhalt von Daten [Request]');
       }
-
-      $('#m-textarea').text(splitted[23]);
-
-      
     }
 
   })
@@ -171,13 +178,9 @@ if(window.location.href.includes('index.html')) {
   });
 }
 
+// Send UUID to request.php to get the Data from txt file and return the data
 function loadEditData(udid) {
-    return $.ajax({
-      method: "GET",
-      url: "request.php",
-      async: !1,
-      data: { uniqueData: udid }
-    });
+    return $.ajax({method: "GET",url: "php/request.php",async: !1,data: { uniqueData: udid }});
 }
 
 

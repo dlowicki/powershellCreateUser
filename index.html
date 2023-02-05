@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Mertero | Benutzerverwaltung</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="jquery.js"></script>
-    <script src="loadData.js"></script>
+    <link href="style/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/loadData.js"></script>
 </head>
 <body>
     <div id="container">
@@ -73,6 +73,7 @@
 
     function sendData() {
         // Get Data
+        // Welche Daten müssen abgespeichert werden
         const vn = $('#m_vn').val(); // Erhalte Vorname
         const nn = $('#m_nn').val(); // Erhalte Nachname
         const dw = $('#m_dw').val(); // Erhalte Durchwahl
@@ -92,9 +93,6 @@
         } else if($('#m_licPremium').prop('checked'))
         {
             lic = 2;
-        } else 
-        {
-            lic = 0;
         }
 
 
@@ -103,10 +101,66 @@
 
 
 
-
         console.log(vn + "-" + nn + "-" + dw + "-" + mn + "-" + vorgesetzter + "-" + firma + "-" + standort + "-" + lic);
     }
 
+    // Eventuell weiterer Punkt für Homeoffice?
+    function saveData() {
+        // Erhalten folgende eingetragene Daten
+        // Vorname, Nachname, Eintrittsdatum, Firma, Standort, Abteilung, Durchwahl, Mobile-Nummer, Vorgesetzter
+        // Laptop/PC, Tastatur/Maus, Headset, Monitore, Docking-Station, Geschäfts-Handy
+        // Software die ausgewählt wurde und das benötigte Office Paket + Kommentar falls vorhanden
+
+        const vn = $('#m_vn').val();            // Erhalte Vorname
+        const nn = $('#m_nn').val();            // Erhalte Nachname
+        const ed = $('#m_date').val();          // Erhalte Eintrittsdatum
+
+        const f = $('#firma').val();            // Erhalte Selektierte Firma
+        const so = $('#standort').val();        // Erhalte Selektierten Standort
+        const ab = $('#abteilung').val();       // Erhalte Selektierte Abteilung
+
+        const dw = $('#m_dw').val();            // Erhalte Durchwahl
+        const mn = $('#m_mn').val();            // Erhalte Mobile-Nummer
+        const vg = $('#vorgesetzter').val();    // Erhalte Selektierten Vorgesetzten
+        
+        const pl = $('#pc_laptop').val();       // Erhalte Selektierten PC/Laptop
+        const tm = $('#tastatur_maus').val();   // Erhalte Selektierte Tastatur/Maus
+        const hs = $('#headset').val();         // Erhalte Selektiertes Headset
+        const mt = $('#monitore').val();        // Erhalte Selektierte Monitore
+        const ds = $('#m-14').prop('checked');  // Erhalte Docking-Station boolean
+        const gh = $('#m-15').prop('checked');  // Erhalte Geschäftshandy boolean
+        const st = $('#m-16').prop('checked');  // Erhalte Stand-Telefon boolean
+        const ho = $('#m-17').prop('checked');  // Erhalte Homeoffice boolean
+
+        var ss = "";                            // String mit ausgewählte Software aufgezählt mit einem Semikolon
+        $('.sw-item').each(function(){
+            if($(this).prop('checked')){
+                ss = ss + $(this).attr('id') + "-";
+            }
+        });
+
+        var lic = 0;                            // Lizenz 0 = keine | 1 = Basic | 2 = Premium
+        $('.officeLic').each(function(){
+            if($(this).prop('checked')){
+                lic = $(this).attr('id');
+            }
+        });
+
+        const jsonString = vn+";"+nn+";"+ed+";"+f+";"+so+";"+ab+";"+dw+";"+mn+";"+vg+";"+pl+";"+tm+";"+hs+";"+mt+";"+ds+";"+gh+";"+st+";"+ho+";"+ss+";"+lic;
+        // Eventuell bei Ajax Übertragung den UserCookie mitschicken?
+        $.ajax({
+            url: "php/sync.php",
+            type: "post",
+            data: { saveData: jsonString },
+            success: function (response) {
+                console.log(response);
+                // Link anzeigen lassen und Daten löschen
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
 
 
 

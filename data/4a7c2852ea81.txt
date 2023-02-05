@@ -1,0 +1,1 @@
+David;Lowicki;;Schrauben-Jäger;Karlsruhe;Keine Abteilung;;;Vorgesetzte1;Kein Laptop/PC;Keine Tastatur/Maus;Kein Headset;Keine Monitore;false;true;false;false;sw-2-sw-3-;lic-1
