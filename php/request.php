@@ -8,6 +8,8 @@ if(isset($_GET['uniqueData'])){
 		$line = fgets($handle);
 		echo $line;
 		fclose($handle);
+	} else {
+		echo '[Error] konnte Datei ' . $_GET['uniqueData'] . ' nicht finden';
 	}
 }
 

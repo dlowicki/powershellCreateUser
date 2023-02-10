@@ -98,9 +98,6 @@
 
         // Alle Gruppen durchgehen und ausgewählte Gruppen in ein Array speichern
 
-
-
-
         console.log(vn + "-" + nn + "-" + dw + "-" + mn + "-" + vorgesetzter + "-" + firma + "-" + standort + "-" + lic);
     }
 
@@ -127,10 +124,10 @@
         const tm = $('#tastatur_maus').val();   // Erhalte Selektierte Tastatur/Maus
         const hs = $('#headset').val();         // Erhalte Selektiertes Headset
         const mt = $('#monitore').val();        // Erhalte Selektierte Monitore
-        const ds = $('#m-14').prop('checked');  // Erhalte Docking-Station boolean
-        const gh = $('#m-15').prop('checked');  // Erhalte Geschäftshandy boolean
-        const st = $('#m-16').prop('checked');  // Erhalte Stand-Telefon boolean
-        const ho = $('#m-17').prop('checked');  // Erhalte Homeoffice boolean
+        var ds = $('#m-14').prop('checked'); if(ds==true){ds=1}else{ds=0} // Erhalte Docking-Station boolean
+        var gh = $('#m-15').prop('checked'); if(gh==true){gh=1}else{gh=0} // Erhalte Geschäftshandy boolean
+        var st = $('#m-16').prop('checked'); if(st==true){st=1}else{st=0} // Erhalte Stand-Telefon boolean
+        var ho = $('#m-17').prop('checked'); if(ho==true){ho=1}else{ho=0} // Erhalte Homeoffice boolean
 
         var ss = "";                            // String mit ausgewählte Software aufgezählt mit einem Semikolon
         $('.sw-item').each(function(){
@@ -147,8 +144,9 @@
         });
 
         const jsonString = vn+";"+nn+";"+ed+";"+f+";"+so+";"+ab+";"+dw+";"+mn+";"+vg+";"+pl+";"+tm+";"+hs+";"+mt+";"+ds+";"+gh+";"+st+";"+ho+";"+ss+";"+lic;
+        console.log(jsonString);
         // Eventuell bei Ajax Übertragung den UserCookie mitschicken?
-        $.ajax({
+        /*$.ajax({
             url: "php/sync.php",
             type: "post",
             data: { saveData: jsonString },
@@ -159,7 +157,7 @@
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
             }
-        });
+        });*/
     }
 
 

@@ -14,11 +14,13 @@ if(window.location.href.includes('index.html')) {
 
     var link = new String(cURL.searchParams.get("edit"));
     var editMode = false;
-    if(link){ if(link.length == 12){ editMode = true; } else {
+    if(link){ 
+      if(link.length == 12){ editMode = true; } else {
       // Abbruch von edit, da Datei nicht existieren kann
+      console.log('[Error] konnte Datei ' + link + ' nicht finden');
     } }
   
-    console.log('[JSON] Daten wurden geladen'); 
+    console.log('[JSON] Lade JSON Daten'); 
     
     $('#widget').empty();
     $('#widget').append('<div class="container-small" id="cs1"></div>');
@@ -115,11 +117,11 @@ if(window.location.href.includes('index.html')) {
     $('#widget').append('<div class="container-buttons"></div>');
     $('.container-buttons').append('<button id="bt_zs" onclick="clearAll()">Zurücksetzen</button>');
     if(editMode == true){
-        $('.container-buttons').append('<button id="bt_link">Link speichern</button>');
+        $('.container-buttons').append('<button id="bt_link">Eintritt speichern</button>');
     } else {
         $('.container-buttons').append('<button id="bt_link" onClick="saveData()">Link erstellen</button>');
     }
-    $('.container-buttons').append('<button id="bt_en" onclick="sendData()">EDV Senden</button>');
+    $('.container-buttons').append('<button id="bt_en" onclick="sendData()">An EDV Senden</button>');
 
     if(editMode == true){
       // link = GET edit Parameter from URL
@@ -145,13 +147,16 @@ if(window.location.href.includes('index.html')) {
         $('#cs4 select[data-id="m-11"]').val(splitted[10]);
         $('#cs4 select[data-id="m-12"]').val(splitted[11]);
         $('#cs4 select[data-id="m-13"]').val(splitted[12]);
-        $('#cs4 input[data-id="m-14"]').prop('checked',parseInt(splitted[13]));
-        $('#cs4 input[data-id="m-15"]').prop('checked',parseInt(splitted[14]));
+
+        $('#cs4 input[id="m-14"]').prop('checked',parseInt(splitted[13]));
+        $('#cs4 input[id="m-15"]').prop('checked',parseInt(splitted[14]));
+        $('#cs4 input[id="m-16"]').prop('checked',parseInt(splitted[15]));
+        $('#cs4 input[id="m-17"]').prop('checked',parseInt(splitted[16]));
   
-        $('#cs5 input[data-id="m-16"]').prop('checked',parseInt(splitted[15]));
-        $('#cs5 input[data-id="m-17"]').prop('checked',parseInt(splitted[16]));
         $('#cs5 input[data-id="m-18"]').prop('checked',parseInt(splitted[17]));
         $('#cs5 input[data-id="m-19"]').prop('checked',parseInt(splitted[18]));
+        $('#cs5 input[data-id="m-20"]').prop('checked',parseInt(splitted[19]));
+        $('#cs5 input[data-id="m-19"]').prop('checked',parseInt(splitted[20]));
         $('#cs5 input[data-id="m-20"]').prop('checked',parseInt(splitted[19]));
         $('#cs5 input[data-id="m-21"]').prop('checked',parseInt(splitted[20]));
         $('#cs5 input[data-id="m-22"]').prop('checked',parseInt(splitted[21]));
@@ -171,7 +176,6 @@ if(window.location.href.includes('index.html')) {
         console.log('[Error] Fehler bei Erhalt von Daten [Request]');
       }
     }
-
   })
   .fail(function(){
     console.log('[Error] Konnte Datei data.json nicht lesen');
