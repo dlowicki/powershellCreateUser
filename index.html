@@ -129,12 +129,13 @@
         var st = $('#m-16').prop('checked'); if(st==true){st=1}else{st=0} // Erhalte Stand-Telefon boolean
         var ho = $('#m-17').prop('checked'); if(ho==true){ho=1}else{ho=0} // Erhalte Homeoffice boolean
 
-        var ss = "";                            // String mit ausgewählte Software aufgezählt mit einem Semikolon
+        var sw = "";                            // String mit ausgewählte Software aufgezählt mit einem Semikolon
         $('.sw-item').each(function(){
             if($(this).prop('checked')){
-                ss = ss + $(this).attr('id') + "-";
+                sw = sw + $(this).attr('id') + "_";
             }
         });
+        sw.slice(0,-1); // Remove Last Character
 
         var lic = 0;                            // Lizenz 0 = keine | 1 = Basic | 2 = Premium
         $('.officeLic').each(function(){
@@ -143,13 +144,18 @@
             }
         });
 
-        const jsonString = vn+";"+nn+";"+ed+";"+f+";"+so+";"+ab+";"+dw+";"+mn+";"+vg+";"+pl+";"+tm+";"+hs+";"+mt+";"+ds+";"+gh+";"+st+";"+ho+";"+ss+";"+lic;
-        console.log(jsonString);
+        const tb = $('#m-textarea').val();
+
+        // Bevor JSONString erstellt wird, nachschauen ob Strings ein Smikolon enthalten und ersetzen :)
+        const jsonString = vn+";"+nn+";"+ed+";"+f+";"+so+";"+ab+";"+dw+";"+mn+";"+vg+";"+pl+";"+tm+";"+hs+";"+mt+";"+ds+";"+gh+";"+st+";"+ho+";"+sw+";"+lic+";"+tb;
+
+        const link = new String(cURL.searchParams.get("edit"))
+
         // Eventuell bei Ajax Übertragung den UserCookie mitschicken?
-        /*$.ajax({
+        $.ajax({
             url: "php/sync.php",
             type: "post",
-            data: { saveData: jsonString },
+            data: { saveData: jsonString, filename: link },
             success: function (response) {
                 console.log(response);
                 // Link anzeigen lassen und Daten löschen
@@ -157,7 +163,7 @@
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
             }
-        });*/
+        });
     }
 
 

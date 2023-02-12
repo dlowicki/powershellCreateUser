@@ -14,11 +14,7 @@ if(window.location.href.includes('index.html')) {
 
     var link = new String(cURL.searchParams.get("edit"));
     var editMode = false;
-    if(link){ 
-      if(link.length == 12){ editMode = true; } else {
-      // Abbruch von edit, da Datei nicht existieren kann
-      console.log('[Error] konnte Datei ' + link + ' nicht finden');
-    } }
+    if(link != "null"){ if(link.length == 12){ editMode = true; } }
   
     console.log('[JSON] Lade JSON Daten'); 
     
@@ -131,46 +127,37 @@ if(window.location.href.includes('index.html')) {
       if(ajaxResponse) {
         var splitted = ajaxResponse.split(';');
 
-        $('#cs1 input[data-id="m-1"]').val(splitted[0]);
-        $('#cs1 input[data-id="m-2"]').val(splitted[1]);
-        $('#cs1 input[data-id="m-3"]').val(splitted[2]);
+        $('#cs1 input[data-id="m-1"]').val(splitted[0]);                                    // Statisch - Vorname
+        $('#cs1 input[data-id="m-2"]').val(splitted[1]);                                    // Statisch - Nachname
+        $('#cs1 input[data-id="m-3"]').val(splitted[2]);                                    // Statisch - Eintrittsdatum
   
-        $('#cs2 select[data-id="m-4"]').val(splitted[3]);
-        $('#cs2 select[data-id="m-5"]').val(splitted[4]);
-        $('#cs2 select[data-id="m-6"]').val(splitted[5]);
+        $('#cs2 select[data-id="m-4"]').val(splitted[3]);                                   // Statisch - Firma
+        $('#cs2 select[data-id="m-5"]').val(splitted[4]);                                   // Statisch - Standort
+        $('#cs2 select[data-id="m-6"]').val(splitted[5]);                                   // Statisch - Abteilung
   
-        $('#cs3 input[data-id="m-7"]').val(splitted[6]);
-        $('#cs3 input[data-id="m-8"]').val(splitted[7]);
-        $('#cs3 select[data-id="m-9"]').val(splitted[8]);
+        $('#cs3 input[data-id="m-7"]').val(splitted[6]);                                    // Statisch - Durchwahl
+        $('#cs3 input[data-id="m-8"]').val(splitted[7]);                                    // Statisch - Mobile-Nummer
+        $('#cs3 select[data-id="m-9"]').val(splitted[8]);                                   // Statisch - Vorgesetzter
   
-        $('#cs4 select[data-id="m-10"]').val(splitted[9]);
-        $('#cs4 select[data-id="m-11"]').val(splitted[10]);
-        $('#cs4 select[data-id="m-12"]').val(splitted[11]);
-        $('#cs4 select[data-id="m-13"]').val(splitted[12]);
+        $('#cs4 select[data-id="m-10"]').val(splitted[9]);                                  // Statisch - Laptop
+        $('#cs4 select[data-id="m-11"]').val(splitted[10]);                                 // Statisch - Tastatur/Maus
+        $('#cs4 select[data-id="m-12"]').val(splitted[11]);                                 // Statisch - Headset
+        $('#cs4 select[data-id="m-13"]').val(splitted[12]);                                 // Statisch - Monitore
 
-        $('#cs4 input[id="m-14"]').prop('checked',parseInt(splitted[13]));
-        $('#cs4 input[id="m-15"]').prop('checked',parseInt(splitted[14]));
-        $('#cs4 input[id="m-16"]').prop('checked',parseInt(splitted[15]));
-        $('#cs4 input[id="m-17"]').prop('checked',parseInt(splitted[16]));
+        $('#cs4 input[id="m-14"]').prop('checked',parseInt(splitted[13]));                  // Statisch - Docking-Station
+        $('#cs4 input[id="m-15"]').prop('checked',parseInt(splitted[14]));                  // Statisch - Geschäfts-Handy
+        $('#cs4 input[id="m-16"]').prop('checked',parseInt(splitted[15]));                  // Statisch - Stand-Telefon
+        $('#cs4 input[id="m-17"]').prop('checked',parseInt(splitted[16]));                  // Statisch - Homeoffice
+        
+        
+        var splSoftware = splitted[17].split('_');                                          // Dynamisch - sw-1_sw-2_sw-3
+        splSoftware.forEach(element => {
+          $('#cs5 input[id="'+element+'"]').prop('checked',true);
+        });
+
+        $('#'+splitted[splitted.length-2]).prop('checked',true);                            // Dynamisch - Office Lizenz = Nur einmal auswählbar
   
-        $('#cs5 input[data-id="m-18"]').prop('checked',parseInt(splitted[17]));
-        $('#cs5 input[data-id="m-19"]').prop('checked',parseInt(splitted[18]));
-        $('#cs5 input[data-id="m-20"]').prop('checked',parseInt(splitted[19]));
-        $('#cs5 input[data-id="m-19"]').prop('checked',parseInt(splitted[20]));
-        $('#cs5 input[data-id="m-20"]').prop('checked',parseInt(splitted[19]));
-        $('#cs5 input[data-id="m-21"]').prop('checked',parseInt(splitted[20]));
-        $('#cs5 input[data-id="m-22"]').prop('checked',parseInt(splitted[21]));
-  
-        switch (splitted[22]) {
-          case 'Office Premium':
-            $('#lic2').prop('checked',true);
-            break;
-          case 'Office Basic':
-            $('#lic1').prop('checked',true);
-            break;
-        }
-  
-        $('#m-textarea').text(splitted[23]);
+        $('#m-textarea').text(splitted[splitted.length-1]);                                 // Statisch - Kommentar Feld
         console.log('[Success] Daten erfolgreich verarbeitet von [Request]');
       } else {
         console.log('[Error] Fehler bei Erhalt von Daten [Request]');

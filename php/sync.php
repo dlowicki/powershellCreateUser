@@ -1,11 +1,17 @@
 <?php
 
-if(isset($_POST['saveData'])){
+if(isset($_POST['saveData']) && isset($_POST['filename'])){
     $data = $_POST['saveData'];
     echo "[SYNC] Daten wurden erfolgreich empfangen";
-    $uuid = createUUID();
-	if(!file_exists('../data/' . $uuid . '.txt')){ $uuid=createUUID(); }
-	$handle = fopen('../data/' . $uuid . '.txt','w');
+    
+    $handle = "";
+	if(file_exists('../data/' . $_POST['filename'] . '.txt')){
+        $handle = fopen('../data/' . $_POST['filename'] . '.txt','w');
+    } else {
+        $uuid = createUUID();
+	    $handle = fopen('../data/' . $uuid . '.txt','w');
+    }
+
     // Wenn schreiben erfolgreich Ausgabe geben, damit Javascript bescheid weiß
 	if(fwrite($handle, $data)){ echo "1"; }
 	fclose($handle);
