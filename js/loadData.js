@@ -113,9 +113,9 @@ if(window.location.href.includes('index.html')) {
     $('#widget').append('<div class="container-buttons"></div>');
     $('.container-buttons').append('<button id="bt_zs" onclick="clearAll()">Zurücksetzen</button>');
     if(editMode == true){
-        $('.container-buttons').append('<button id="bt_link" onClick="updateFile()">Eintritt speichern</button>');
+        $('.container-buttons').append('<button id="bt_link" onClick="updateFile()">Eintritt aktualisieren</button>');
     } else {
-        $('.container-buttons').append('<button id="bt_link" onClick="updateFile()">Link erstellen</button>');
+        $('.container-buttons').append('<button id="bt_link" onClick="updateFile()">Eintritt erstellen</button>');
     }
     $('.container-buttons').append('<button id="bt_en" onclick="sendData()">An EDV Senden</button>');
 
