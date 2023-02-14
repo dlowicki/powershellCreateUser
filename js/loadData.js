@@ -176,10 +176,29 @@ function loadEditData(udid) {
 
 
 function clearAll() {
-  $('#m_vn').val('');
-  $('#m_nn').val('');
-  $('#m_dw').val('');
-  $('#m_mn').val('');
-  $('#m_licBasic').prop('checked',false);
-  $('#m_licPremium').prop('checked',false);
+    $('#m_vn').val('');             // Lösche Vorname
+    $('#m_nn').val('');             // Lösche Nachname
+    $('#m_date').val('');           // Lösche Eintrittsdatum
+
+    $('#firma').val('Schrauben-Jäger');              // Lösche Selektierte Firma
+    $('#standort').val('Karlsruhe');           // Lösche Selektierten Standort
+    $('#abteilung').val('Keine Abteilung');          // Lösche Selektierte Abteilung
+
+    $('#m_dw').val('');               // Lösche Durchwahl
+    $('#m_mn').val('');               // Lösche Mobile-Nummer
+    $('#vorgesetzter').val('Kein Vorgesetzter');       // Lösche Selektierten Vorgesetzten
+
+    $('#pc_laptop').val('Kein Laptop/PC');       // Erhalte Selektierten PC/Laptop
+    $('#tastatur_maus').val('Keine Tastatur/Maus');   // Erhalte Selektierte Tastatur/Maus
+    $('#headset').val('Kein Headset');         // Erhalte Selektiertes Headset
+    $('#monitore').val('Keine Monitore');        // Erhalte Selektierte Monitore
+    $('#m-14').prop('checked',false); // Erhalte Docking-Station boolean
+    $('#m-15').prop('checked',false); // Erhalte Geschäftshandy boolean
+    $('#m-16').prop('checked',false); // Erhalte Stand-Telefon boolean
+    $('#m-17').prop('checked',false); // Erhalte Homeoffice boolean
+
+    $('.sw-item').each(function () { $(this).prop('checked',false) });
+    $('.officeLic').each(function () { $(this).prop('checked',false) });
+    $('#m-textarea').val('');
+
 }
