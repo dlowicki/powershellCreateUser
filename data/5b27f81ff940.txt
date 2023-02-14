@@ -1,1 +1,1 @@
-David;Krass;2222-02-12;Schrauben-Jäger;Karlsruhe;Keine Abteilung;;;Vorgesetzte1;Kein Laptop/PC;Keine Tastatur/Maus;Kein Headset;Keine Monitore;1;0;0;1;sw-1_sw-2_sw-3_sw-4_sw-5_sw-6_sw-7_;lic-1;Das isn Kommentar 123
+David;Krass;2222-02-12;Schrauben-Jäger;Karlsruhe;Keine Abteilung;;;Vorgesetzte1;Kein Laptop/PC;Keine Tastatur/Maus;Kein Headset;Keine Monitore;0;0;0;1;sw-1_sw-2_sw-3_sw-4_sw-5_sw-6_sw-7_;lic-2;Das isn Kommentar 123

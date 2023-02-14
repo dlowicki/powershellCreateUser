@@ -11,12 +11,12 @@ if(window.location.href.includes('index.html')) {
     $.each( data, function(key,val){
       items[key] = val;
     });
-
+    // Erhalte edit Parameter von URL; Wenn link vorhanden und größer als 12 wird editierMode aktiviert
     var link = new String(cURL.searchParams.get("edit"));
     var editMode = false;
     if(link != "null"){ if(link.length == 12){ editMode = true; } }
   
-    console.log('[JSON] Lade JSON Daten'); 
+    console.log('[JSON] Lade JSON Daten...'); 
     
     $('#widget').empty();
     $('#widget').append('<div class="container-small" id="cs1"></div>');
@@ -118,7 +118,7 @@ if(window.location.href.includes('index.html')) {
         $('.container-buttons').append('<button id="bt_link" onClick="updateFile()">Eintritt erstellen</button>');
     }
     $('.container-buttons').append('<button id="bt_en" onclick="sendData()">An EDV Senden</button>');
-
+    console.log('[JSON] Daten wurden erfolgreich geladen!');
     if(editMode == true){
       // link = GET edit Parameter from URL
       var ajaxObj = loadEditData(link);       // loadEditData = get data from file at data Directory 
@@ -201,4 +201,13 @@ function clearAll() {
     $('.officeLic').each(function () { $(this).prop('checked',false) });
     $('#m-textarea').val('');
 
+}
+
+function loadAustritt() {
+    $('#widget').empty();
+    $('#widget').append('<div class="container-small" id="cs7"></div>');
+    $('#cs7').append('<input type="text" placeholder="nachname.vorname">');
+    $('#cs7').append('<button>Suchen</button>');
+    // Input field
+    // https://geekshangout.com/php-example-get-data-active-directory-via-ldap/
 }

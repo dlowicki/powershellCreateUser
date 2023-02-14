@@ -12,19 +12,15 @@
         <div class="navigation">
             <ul>
                 <li class="currentNav" onClick="location.reload()">Eintritt</li>
-                <li onClick="loadBearbeiten()">Austritt</li>
+                <li onClick="loadAustritt()">Austritt</li>
             </ul>
          </div>
         <div id="widget"></div>
     </div>
 
     <script>
-
-    $(document).ready(function(){
-        // Sicherheitscookie setzen und abfragen. Ansonsten wird Benutzerverwaltung nicht geladen
-    });
     
-    $(document).on('change','#cs1 input', function(){
+    /*$(document).on('change','#cs1 input', function(){
         var m_vn = $('#m_vn').val(); var m_nn = $('#m_nn').val(); var m_date = $('#m_date').val();
         if(m_vn.length > 2 && m_nn.length > 2 && m_date.length != 0) {
             if($('#cs1-headline img').length == false){ $('#cs1-headline').append('<img src="check-solid.svg" id="check-1">'); }
@@ -54,7 +50,7 @@
         } else { 
             $('#'+event.target.id).prop('checked', false); $('#cs6-headline img').remove();
         }
-    });
+    });*/
 
     $('.navigation ul li').click(function(){
         if($(this).attr('class') != 'currentNav'){
