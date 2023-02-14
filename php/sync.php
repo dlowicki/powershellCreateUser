@@ -1,9 +1,7 @@
 <?php
 
 if(isset($_POST['saveData']) && isset($_POST['filename'])){
-    $data = $_POST['saveData'];
-    echo "[SYNC] Daten wurden erfolgreich empfangen";
-    
+    $data = $_POST['saveData'];    
     $handle = "";
 	if(file_exists('../data/' . $_POST['filename'] . '.txt')){
         $handle = fopen('../data/' . $_POST['filename'] . '.txt','w');
@@ -13,7 +11,7 @@ if(isset($_POST['saveData']) && isset($_POST['filename'])){
     }
 
     // Wenn schreiben erfolgreich Ausgabe geben, damit Javascript bescheid weiß
-	if(fwrite($handle, $data)){ echo "1"; }
+	if(fwrite($handle, $data)){ echo "[SYNC] Daten wurden erfolgreich empfangen"; }
 	fclose($handle);
 }
 

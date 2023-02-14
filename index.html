@@ -157,8 +157,15 @@
             type: "post",
             data: { saveData: jsonString, filename: link },
             success: function (response) {
-                console.log(response);
                 // Link anzeigen lassen und Daten löschen
+                if(response == '[SYNC] Daten wurden erfolgreich empfangen'){
+                    $('#widget').empty();
+                    $('#widget').append('<div class="container-end"></div>');
+                    $('.container-end').append('<h2>Eintritt wurde erstellt/aktualisiert</h2>');
+                    $('.container-end').append('<input type="text" value="index.html?edit='+link+'" id="container-end-link" disabled>');
+                    $('.container-end').append('<button onClick="copyLink()">Link kopieren</button>');
+                    
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
@@ -167,7 +174,16 @@
     }
 
 
-
+    function copyLink() {
+        var copyText = document.getElementById("container-end-link");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(copyText.value);
+        $('.container-end').append('<h4>Link wurde kopiert</h4>');
+        setTimeout(() => {
+            $('.container-end h4').remove();
+        }, "5000");
+    }
 
     
     </script>

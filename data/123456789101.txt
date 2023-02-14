@@ -1,1 +1,1 @@
-Lena;lowicki;2000-01-10;Werkzeug-Jäger;Karlsruhe;EDV;000;07218303144;Vorgesetzte2;Laptop;Nur Maus;Jabra Evolve 2 65;1x Monitor;0;1;1;0;1;1;1;1;1;Office Basic;Kein Kommentar;
+Lena;krass;2000-01-10;Werkzeug-Jäger;Karlsruhe;EDV;000;07218303144;Vorgesetzte2;Laptop;Nur Maus;Jabra Evolve 2 65;1x Monitor;0;1;1;0;;0;
