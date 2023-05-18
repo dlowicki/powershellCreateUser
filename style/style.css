@@ -17,12 +17,13 @@ Benutzerverwaltung
 
 .m-flex-wrap { display: flex;flex-wrap: wrap; }
 
-#cs1 .m-flex-wrap { margin-top: 20px; margin-bottom: 10px; }
-#cs2 .m-flex-wrap { margin-top: 20px; margin-bottom: 10px; }
-#cs3 .m-flex-wrap { margin-top: 20px; margin-bottom: 10px; }
-#cs4 .m-flex-wrap { margin-top: 20px; margin-bottom: 10px; }
-#cs5 .m-flex-wrap { margin-top: 20px; margin-bottom: 10px; }
-#cs6 .m-flex-wrap { margin-top: 20px; margin-bottom: 10px; }
+#cs1 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
+#cs2 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
+#cs2 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
+#cs3 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
+#cs4 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
+#cs5 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
+#cs6 .m-flex-wrap { margin-top: 5px; margin-bottom: 10px; }
 
 .m-textbox {width: auto;max-width: 240px;display: flex;flex-wrap: wrap;margin: 10px 0px 10px 0px;margin-left: auto;margin-right: auto;}
 .m-textbox label {font-weight: 100;color: white;margin-bottom: 5px;padding-left: 5px;}

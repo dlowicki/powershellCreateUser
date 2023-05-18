@@ -25,42 +25,13 @@
       "Vorgesetzter3",
       "Vorgesetzter4"
     ],
-    "ar-pc-laptop": [
-      "Kein Laptop/PC",
-      "Laptop",
-      "Desktop-PC"
-    ],
-    "ar-tastatur-maus": [
-      "Keine Tastatur/Maus",
-      "Tastatur + Maus",
-      "Nur Tastatur",
-      "Nur Maus"
-    ],
-    "ar-headset": [
-      "Kein Headset",
-      "Jabra Evolve 2 65",
-      "Jabra 510"
-    ],
-    "ar-monitore": [
-      "Keine Monitore",
-      "2x Monitore",
-      "1x Monitor"
-    ],
-    "Docking-Station": false,
-    "Geschäfts-Handy": false,
-    "Stand-Telefon": false,
-    "Homeoffice": false,
-    "ar-software": [
-      "AS400",
-      "IQDoc",
-      "Access Viewer",
-      "Codesoft",
-      "Software5",
-      "Software6",
-      "Software7"
-    ],
     "ar-office": [
         "Office Basic",
         "Office Premium"
+    ],
+    "ar-postfächer": [
+        "EDV",
+        "Einkauf",
+        "Verkauf"
     ]
   }

@@ -22,10 +22,8 @@ if(window.location.href.includes('index.html')) {
     $('#widget').append('<div class="container-small" id="cs1"></div>');
     $('#widget').append('<div class="container-small" id="cs2"></div>');
     $('#widget').append('<div class="container-small" id="cs3"></div>');
-    $('#widget').append('<div class="container-small" id="cs4"></div>');
     $('#widget').append('<div class="container-small" id="cs5"></div>');
     $('#widget').append('<div class="container-small" id="cs6"></div>');
-    $('#widget').append('<div class="container-small" id="cs7"></div>');
   
     // Lade Container 1 // Personen-Daten
     $('#cs1').append('<div class="container-headline" id="cs1-headline"><h3>Personen-Daten</h3></div>');
@@ -60,37 +58,11 @@ if(window.location.href.includes('index.html')) {
       $('#vorgesetzter').append('<option value="'+val+'">'+val+'</option>');
     });
       
-    // Lade Container 4 // Hardware
-    $('#cs4').append('<div class="container-headline" id="cs4-headline"><h3>Hardware</h3></div>');
-    $('#cs4').append('<div class="m-flex-wrap"></div>');
-    $('#cs4 .m-flex-wrap').append('<div class="m-dropdown" id="dd_pc_laptop"><label>Laptop/PC</label><select data-id="m-10" id="pc_laptop"></select></div>');
-    $.each(items['ar-pc-laptop'], function(key,val){
-      $('#pc_laptop').append('<option value="'+val+'">'+val+'</option>');
-    });
-    $('#cs4 .m-flex-wrap').append('<div class="m-dropdown" id="dd_tastatur_maus"><label>Tastatur/Maus</label><select data-id="m-11" id="tastatur_maus"></select></div>');
-    $.each(items['ar-tastatur-maus'], function(key,val){
-      $('#tastatur_maus').append('<option value="'+val+'">'+val+'</option>');
-    });
-    $('#cs4 .m-flex-wrap').append('<div class="m-dropdown" id="dd_headset"><label>Headset</label><select data-id="m-12" id="headset"></select></div>');
-    $.each(items['ar-headset'], function(key,val){
-      $('#headset').append('<option value="'+val+'">'+val+'</option>');
-    });
-    $('#cs4 .m-flex-wrap').append('<div class="m-dropdown" id="dd_monitore"><label>Monitore</label><select data-id="m-13" id="monitore"></select></div>');
-    $.each(items['ar-monitore'], function(key,val){
-      $('#monitore').append('<option value="'+val+'">'+val+'</option>');
-    });
-    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_docking"><div class="cb"><label>Docking-Station</label><label class="switch"><input type="checkbox" id="m-14"><span class="slider round"></span></label></div></div>');
-    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_handy"><div class="cb"><label>Geschäfts-Handy</label><label class="switch"><input type="checkbox" id="m-15"><span class="slider round"></span></label></div></div>');
-    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_telefon"><div class="cb"><label>Stand-Telefon</label><label class="switch"><input type="checkbox" id="m-16"><span class="slider round"></span></label></div></div>');
-    $('#cs4 .m-flex-wrap').append('<div class="m-checkbox" id="cb_homeoffice"><div class="cb"><label>Homeoffice</label><label class="switch"><input type="checkbox" id="m-17"><span class="slider round"></span></label></div></div>');
-   
-  
-  
-    // Lade Container 5 // Gruppen
-    $('#cs5').append('<div class="container-headline" id="cs5-headline"><h3>Software</h3></div>');
+    // Lade Container 5 // Postfächer
+    $('#cs5').append('<div class="container-headline" id="cs5-headline"><h3>Postfächer</h3></div>');
     $('#cs5').append('<div class="m-flex-wrap" id="cb_software"></div>');
     var counter = 1;
-    $.each(items['ar-software'], function(key,val){
+    $.each(items['ar-postfächer'], function(key,val){
       $('#cb_software').append('<div class="m-checkbox"><div class="cb"><label>'+val+'</label><label class="switch"><input type="checkbox" id="sw-'+counter+'" class="sw-item"><span class="slider round"></span></label></div></div>');
       counter++;
     });
@@ -104,10 +76,6 @@ if(window.location.href.includes('index.html')) {
       $('#cb_lizenz').append('<div class="cb"><label>'+val+'</label><label class="switch"><input type="checkbox" class="officeLic" id="lic-'+counter+'"><span class="slider round"></span></label></div>');
       counter++;
     });
-  
-    //Lade Container 7 // Kommentar
-    $('#cs7').append('<div class="container-headline" id="cs7-headline"><h3>Kommentar</h3></div>');
-    $('#cs7').append('<textarea id="m-textarea" resize="false"></textarea>');
   
     // Lade Buttons
     $('#widget').append('<div class="container-buttons"></div>');
@@ -180,24 +148,16 @@ function clearAll() {
     $('#m_nn').val('');             // Lösche Nachname
     $('#m_date').val('');           // Lösche Eintrittsdatum
 
-    $('#firma').val('Schrauben-Jäger');              // Lösche Selektierte Firma
-    $('#standort').val('Karlsruhe');           // Lösche Selektierten Standort
-    $('#abteilung').val('Keine Abteilung');          // Lösche Selektierte Abteilung
+    $('#firma').val('Schrauben-Jäger');                 // Lösche Selektierte Firma
+    $('#standort').val('Karlsruhe');                    // Lösche Selektierten Standort
+    $('#abteilung').val('Keine Abteilung');             // Lösche Selektierte Abteilung
 
-    $('#m_dw').val('');               // Lösche Durchwahl
-    $('#m_mn').val('');               // Lösche Mobile-Nummer
-    $('#vorgesetzter').val('Kein Vorgesetzter');       // Lösche Selektierten Vorgesetzten
+    $('#m_dw').val('');                                 // Lösche Durchwahl
+    $('#m_mn').val('');                                 // Lösche Mobile-Nummer
+    $('#vorgesetzter').val('Kein Vorgesetzter');        // Lösche Selektierten Vorgesetzten
 
-    $('#pc_laptop').val('Kein Laptop/PC');       // Erhalte Selektierten PC/Laptop
-    $('#tastatur_maus').val('Keine Tastatur/Maus');   // Erhalte Selektierte Tastatur/Maus
-    $('#headset').val('Kein Headset');         // Erhalte Selektiertes Headset
-    $('#monitore').val('Keine Monitore');        // Erhalte Selektierte Monitore
-    $('#m-14').prop('checked',false); // Erhalte Docking-Station boolean
-    $('#m-15').prop('checked',false); // Erhalte Geschäftshandy boolean
-    $('#m-16').prop('checked',false); // Erhalte Stand-Telefon boolean
-    $('#m-17').prop('checked',false); // Erhalte Homeoffice boolean
 
-    $('.sw-item').each(function () { $(this).prop('checked',false) });
+    $('.sw-item').each(function () { $(this).prop('checked',false) }); // Erhalte alle Postfächer
     $('.officeLic').each(function () { $(this).prop('checked',false) });
     $('#m-textarea').val('');
 
